@@ -1,1 +1,1 @@
-# CS476Project
+# CS 372 Project
