@@ -31,7 +31,7 @@ CREATE TABLE Archives (
 	old_document_options VARCHAR(255) NOT NULL,
 	old_document_content TEXT NOT NULL,
 	PRIMARY KEY (archive_id),
-	FOREIGN_KEY (old_document_id) REFERENCES Documents(document_id)
+	FOREIGN KEY (old_document_id) REFERENCES Documents(document_id)
 );
 
 CREATE TABLE Access (
