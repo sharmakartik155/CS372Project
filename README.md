@@ -1,3 +1,5 @@
-# CS 372 Project
+# OutlineR
 
-This project is for CS 372 in the Fall semester.
+## CS 372 Project
+
+An online outlining software that allows users view the document and see changes as they are made.
