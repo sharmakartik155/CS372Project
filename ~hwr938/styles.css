@@ -1,0 +1,294 @@
+body {
+    margin:0px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+/*for the navigation bar for all web pages*/
+.nav-wrapper{
+    display: flex;
+    justify-content: space-between;
+    padding:36px;
+}
+
+.left-side{
+    display: flex;
+}
+
+.nav-wrapper > .left-side > div{
+    margin-right: 20px;
+    font-size: 0.9em;
+    text-transform: uppercase;
+}
+
+.nav-wrapper > .right-side > div{
+    margin-right: 20px;
+    font-size: 2em;
+    text-transform: uppercase;
+    font-family: Haettenschweiler;
+}
+
+.nav-link-wrapper {
+    height: 22px;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.5s;
+}
+
+.nav-link-wrapper a {
+    color: grey;
+    text-decoration: none;
+    transition: color 0.5s;
+}
+
+.nav-link-wrapper:hover{
+border-bottom: 1px solid black;
+}
+
+.nav-link-wrapper a:hover {
+    color: black;
+}
+
+/* middle content styling for pettracker.html*/
+
+.content-wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 36px;
+    
+}
+
+ .content-left-side h1{
+    color: grey;
+    text-decoration: underline  grey;
+}
+.about-us {
+    font-family: Cambria;
+}
+
+/*login style for login.html*/
+
+ .login-forum{
+     width: 320px;
+     height: 420ps;
+     background:white;
+     color: grey;
+     top: 50%;
+     left: 50%;
+     position: absolute;
+     transform: translate(-50%,-50%);
+     box-sizing: border-box;
+     padding: 70px 30px;
+ }
+
+ .avatar{
+     width: 100px;
+     height: 100px;
+     border-radius: 50%;
+     position: absolute;
+     top: -50px;
+     left: calc(50% - 50px);
+ }
+
+ #login-here{
+     margin: 0px;
+     padding: 0 0 20 px;
+     text-align: center;
+     font-size: 22px;
+ }
+
+ .login-forum p {
+     margin: 0px;
+     padding: 0px;
+     font-weight: bold;
+ }
+
+ .login-forum input{
+     width: 100%;
+     margin-bottom: 20px;
+ }
+
+ .login-forum input[type="text"], input[type="password"]
+ {
+     border: none;
+     border-bottom: 1px solid grey;
+     background: transparent;
+     outline: none;
+     height: 40px;
+     color: grey;
+     font-size: 16px;
+ }
+
+ .login-forum input[type="submit"]
+ {
+     border: none;
+     outline: none;
+     height: 40px;
+     background: rgb(255, 174, 0);
+     color: white;
+     font-size: 18px;
+     border-radius: 20px;
+ }
+
+
+ .login-forum input[type="submit"]:hover{
+     cursor: pointer;
+     background: grey;
+     color: black;
+ }
+
+ .login-forum a{
+     text-decoration: none;
+     font-size: 12px;
+     line-height: 20px;
+     color: grey;
+ }
+
+ .login-forum a:hover{
+     color: lightgrey;
+ }
+
+ /* For displaying our info on contact.html */
+ .info-wrapper{
+
+     display: flex;
+     justify-content: space-between;
+     padding: 36px;
+     
+ }
+
+ /* Registration page */
+
+ .register-forum{
+    width: 320px;
+    height: 420ps;
+    background:white;
+    color: grey;
+    top: 75%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+}
+
+#register-here{
+    margin: 0px;
+    padding: 0 0 20 px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.register-forum p {
+    margin: 0px;
+    padding: 0px;
+    font-weight: bold;
+}
+
+.register-forum input{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.register-forum input[type="text"], input[type="password"]
+{
+    border: none;
+    border-bottom: 1px solid grey;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: grey;
+    font-size: 16px;
+}
+
+.register-forum input[type="submit"]
+{
+    border: none;
+    outline: none;
+    height: 40px;
+    background: rgb(255, 174, 0);
+    color: white;
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+
+.register-forum input[type="submit"]:hover{
+    cursor: pointer;
+    background: grey;
+    color: black;
+}
+
+.register-forum a{
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 20px;
+    color: grey;
+}
+
+.register-forum a:hover{
+    color: lightgrey;
+}
+
+/* profile page */
+.information{
+    display:flex;
+    justify-content: space-between;
+    padding: 36px;
+}
+
+.person-information table{
+    border: 1px solid grey;
+}
+.person-information td{
+    border: 1px solid grey;
+}
+
+.pet-information table{
+   
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+    
+}
+
+.pet-information thead tr{
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.pet-information td,
+.pet-information th
+{
+   padding: 12px 15px;
+}
+
+.pet-information tbody tr{
+    border-bottom: 1px solid #dddddd;
+}
+
+.pet-information{
+    background-color: #f3f3f3;
+}
+
+.pet-information tbody tr:last-of-type{
+    border-bottom: 2px solid #009879;
+}
+
+.pet-information tbody tr.active-row{
+    font-weight: bold;
+    color: #009879;
+}
+.pet-information table img{
+    width: 200px;
+    height: 100px;
+    border-radius: 50%;
+   
+}
