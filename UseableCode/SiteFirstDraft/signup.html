@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <title>Sign Up</title>
+        <script type="text/javascript" src="javascript/validate.js"></script>
+    </head>
+    <body>
+        <h1>Sign Up</h1>
+        <form id="formSignup" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="submitted" value="1"/>
+            <table>
+                <tr>
+                    <td><label id="email_msg" class="err_msg"></label></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="text" name="email" size="30" /></td>
+                </tr>
+                <tr>
+                    <td><label id="uname_msg" class="err_msg"></label></td>
+                </tr>
+                <tr>
+                    <td>Username:</td>
+                    <td><input type="text" name="uname" size="30" /></td>
+                </tr>
+                <tr>
+                    <td><label id="pswd_msg" class="err_msg"></label></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="password" name="password" size="30" /></td>
+                </tr>
+                <tr>
+                    <td><label id="pswdr_msg" class="err_msg"></label></td>
+                </tr>
+                <tr>
+                    <td>Confirm Password:</td>
+                    <td><input type="password" name="pwdr" size="30" /></td>
+                </tr>
+                <tr>
+                    <td>Avatar:</td>
+            		<td><input type="file" name="avatar" id="avatar"></td>
+                    <td><label id="photo_msg" class="err_msg"></label></td>
+                </tr>
+            </table>
+            <input type="submit" value="Sign up" /> 
+            <input type="reset" value="Reset" />
+        </form>
+        <script type="text/javascript" src="javascript/signup.js"></script>
+        <p><a href="index.html">Back to home page</a></p>
+    </body>
+</html>

@@ -1,0 +1,45 @@
+@CHARSET "UTF-8";
+
+body {
+	background-color: linen;
+	/*
+	background-image: url("image.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	*/
+}
+
+table {
+	text-align: left;
+	font-family: monospace;
+	font-size: 125%;
+	border-collapse: collapse;
+
+}
+
+
+tr:nth-child(even) {
+	background-color: #b5c2df;
+}
+
+th {
+	background-color: #4caf50;
+}
+
+td,th {
+	border-style: solid;
+	border-color: black;
+	border-width: 2px;
+}
+
+tr:hover {
+	background-color: #3c73c7;
+}
+
+a:hover {
+	background-color: hotpink;
+}
+
+a:visited {
+	color: black;
+}
