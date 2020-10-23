@@ -1,0 +1,34 @@
+<!--Edited by Philip Ottenbreit, obtained from "http://www2.cs.uregina.ca/~temp8/SignUp_dom.html"-->
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>SignUp Page</title> 
+		
+		<style type="text/css">
+			.err_msg { color:red; text-decoration:underline; }
+		</style>
+		<script type="text/javascript" src="signup.js"> </script>  
+	</head>
+	
+	<body>
+		<h1>Sign Up Page</h1>
+		
+		<form id="SignUp" method="post">
+			<table>
+				<tr><td></td><td><label id="email_msg"	class="err_msg"></label></td></tr><tr><td>Email:		</td><td><input type="text" 			name="email" 	size="30" /></td></tr>
+				<tr><td></td><td><label id="uname_msg"	class="err_msg"></label></td></tr><tr><td>Username:	</td><td><input type="text" 			name="uname" 	size="30" /></td></tr>
+				<tr><td></td><td><label id="pswd_msg"		class="err_msg"></label></td></tr><tr><td>Password:	</td><td><input type="password" 	name="pswd" 	size="30" /></td></tr>
+				<tr><td></td><td><label id="pswdr_msg"	class="err_msg"></label></td></tr><tr><td>Confirm:	</td><td><input type="password" 	name="pswdr" 	size="30" /></td></tr>
+			</table>
+			<br>
+			<input type="submit" value="Sign-up" /> 
+			<input type="reset" value ="Reset " id="special000"/>
+		</form>
+		
+		<div id="display_info"></div>
+		<p><a href = "index.html">Back to index page</a></p>
+	</body>
+	
+</html>

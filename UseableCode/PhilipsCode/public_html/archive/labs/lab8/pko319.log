@@ -1,0 +1,338 @@
+Script started on Tue Mar 12 16:41:36 2019
+Script on hercules[21]% mysql -p pko319
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 7428933
+Server version: 5.1.73 Source distribution
+
+Copyright (c) 2000, 2013, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+[?1034hmysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| pko319             |
++--------------------+
+2 rows in set (0.01 sec)
+
+mysql> use pko319;
+Database changed
+mysql> source ~/public_html/students.sql;
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+mysql> show tables;
++------------------+
+| Tables_in_pko319 |
++------------------+
+| students         |
++------------------+
+1 row in set (0.00 sec)
+
+mysql> desc students;
++--------------------+--------------+------+-----+---------+-------+
+| Field              | Type         | Null | Key | Default | Extra |
++--------------------+--------------+------+-----+---------+-------+
+| student_ID         | varchar(30)  | NO   |     | NULL    |       |
+| first_Name         | varchar(30)  | NO   |     | NULL    |       |
+| middle_Name        | varchar(30)  | YES  |     | NULL    |       |
+| last_Name          | varchar(30)  | NO   |     | NULL    |       |
+| email              | varchar(100) | NO   |     | NULL    |       |
+| course_Name        | varchar(30)  | NO   |     | NULL    |       |
+| course_Description | varchar(255) | NO   |     | NULL    |       |
+| marks              | double       | NO   |     | NULL    |       |
++--------------------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> select * from students;
++------------+------------+-------------+-------------+--------------------------+-------------+----------------------------------+-------+
+| student_ID | first_Name | middle_Name | last_Name   | email                    | course_Name | course_Description               | marks |
++------------+------------+-------------+-------------+--------------------------+-------------+----------------------------------+-------+
+| 200266200  | Ahmed      | Al          | Abbad       | alabba200cs.uregina.ca   | CS100       | Introduction to Computers        |  90.5 |
+| 200266200  | Ahmed      | Al          | Abbad       | alabba200cs.uregina.ca   | CS110       | Programming and Problem Solving  |    85 |
+| 200266200  | Ahmed      | Al          | Abbad       | alabba200@cs.uregina.ca  | CS210       | Data Structures and Abstractions |    90 |
+| 200266202  | Qaswar     |             | Rai         | ali202@cs.uregina.ca     | CS100       | Introduction to Computers        |  72.5 |
+| 200266202  | Qaswar     |             | Rai         | ali202@cs.uregina.ca     | CS110       | Programming and Problem Solving  |  59.2 |
+| 200266202  | Qaswar     |             | Rai         | ali202@cs.uregina.ca     | CS215       | Web Oriented Programming         |  82.6 |
+| 200266203  | Nicholas   |             | Phongsavath | phosan203@cs.uregina.ca  | CS100       | Introduction to Computers        |   100 |
+| 200266203  | Nicholas   |             | Phongsavath | phosan203@cs.uregina.ca  | CS215       | Web Oriented Programming         |   100 |
+| 200266204  | Nikki      |             | Pawlowski   | pawlow204@cs.uregina.ca  | CS100       | Introduction to Computers        |    65 |
+| 200266204  | Nikki      |             | Pawlowski   | pawlow204@cs.uregina.ca  | CS210       | Data Structures and Abstractions |  92.5 |
+| 200266205  | Nathan     |             | Ellis       | elli205@cs.uregina.ca    | CS110       | Programming and Problem Solving  |  92.5 |
+| 200266205  | Nathan     |             | Ellis       | elli205@cs.uregina.ca    | CS210       | Data Structures and Abstractions |  70.2 |
+| 200266206  | John       |             | Erick       | eric20j206@cs.uregina.ca | CS100       | Introduction to Computers        |    86 |
+| 200266206  | John       |             | Erick       | eric20j206@cs.uregina.ca | CS110       | Programming and Problem Solving  |    87 |
+| 200266206  | John       |             | Erick       | eric20j206@cs.uregina.ca | CS210       | Data Structures and Abstractions |    81 |
+| 200266206  | John       |             | Erick       | eric20j206@cs.uregina.ca | CS215       | Web Oriented Programming         |    83 |
+| 200266207  | Jody-Lee   | Van         | DerVelden   | vanervj207@cs.uregina.ca | CS100       | Introduction to Computers        |    59 |
+| 200266207  | Jody-Lee   | Van         | DerVelden   | vanervj207@cs.uregina.ca | CS110       | Programming and Problem Solving  |  50.2 |
+| 200266207  | Jody-Lee   | Van         | DerVelden   | vanervj207@cs.uregina.ca | CS210       | Data Structures and Abstractions |    67 |
+| 200266207  | Jody-Lee   | Van         | DerVelden   | vanervj207@cs.uregina.ca | CS215       | Web Oriented Programming         |  85.6 |
+| 200266208  | Sabrina    |             | Tram        | tra200s208@cs.uregina.ca | CS100       | Introduction to Computers        |    70 |
+| 200266208  | Sabrina    |             | Tram        | tra200s208@cs.uregina.ca | CS110       | Programming and Problem Solving  |    80 |
+| 200266208  | Sabrina    |             | Tram        | tra200s208@cs.uregina.ca | CS210       | Data Structures and Abstractions |  88.5 |
+| 200266209  | Ke         |             | Tao         | taoke209@cs.uregina.ca   | CS110       | Programming and Problem Solving  |  66.5 |
+| 200266209  | Ke         |             | Tao         | taoke209@cs.uregina.ca   | CS210       | Data Structures and Abstractions |  77.5 |
+| 200266209  | Ke         |             | Tao         | taoke209@cs.uregina.ca   | CS215       | Data Structures and Abstractions |  86.5 |
+| 200266209  | Ke         |             | Tao         | taoke209@cs.uregina.ca   | CS000       | 00000000000000000000000          |     0 |
+| 200266210  | Yupeng     | Xu          |             | x210@cs.uregina.ca       | CS100       | Introduction to Computers        |    89 |
+| 200266210  | Yupeng     | Xu          |             | x210@cs.uregina.ca       | CS210       | Data Structures and Abstractions |    92 |
+| 200266211  | Chidinma   |             | Ukabam      | ukaba211@cs.uregina.ca   | CS100       | Introduction to Computers        |    99 |
+| 200266212  | Mandeep    |             | Ghotra      | gho212@cs.uregina.ca     | CS215       | Web Oriented Programming         |    98 |
++------------+------------+-------------+-------------+--------------------------+-------------+----------------------------------+-------+
+31 rows in set (0.00 sec)
+
+mysql> update students
+    -> set email="alabba200@cs.uregina.ca"
+    -> where first_Name="Ahmed" AND last_Name="Abbad";
+Query OK, 2 rows affected (0.00 sec)
+Rows matched: 3  Changed: 2  Warnings: 0
+
+mysql> update students
+    -> set last_Name="Xu", middle_Name=""
+    -> where student_ID="200266210";
+Query OK, 2 rows affected (0.00 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> update students
+    -> set course_Description="Web and Database Programming"
+    -> where course_Name="CS215";
+Query OK, 6 rows affected (0.00 sec)
+Rows matched: 6  Changed: 6  Warnings: 0
+
+mysql> delete from students
+    -> where course_Name="CS000";
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from students;
++------------+------------+-------------+-------------+--------------------------+-------------+----------------------------------+-------+
+| student_ID | first_Name | middle_Name | last_Name   | email                    | course_Name | course_Description               | marks |
++------------+------------+-------------+-------------+--------------------------+-------------+----------------------------------+-------+
+| 200266200  | Ahmed      | Al          | Abbad       | alabba200@cs.uregina.ca  | CS100       | Introduction to Computers        |  90.5 |
+| 200266200  | Ahmed      | Al          | Abbad       | alabba200@cs.uregina.ca  | CS110       | Programming and Problem Solving  |    85 |
+| 200266200  | Ahmed      | Al          | Abbad       | alabba200@cs.uregina.ca  | CS210       | Data Structures and Abstractions |    90 |
+| 200266202  | Qaswar     |             | Rai         | ali202@cs.uregina.ca     | CS100       | Introduction to Computers        |  72.5 |
+| 200266202  | Qaswar     |             | Rai         | ali202@cs.uregina.ca     | CS110       | Programming and Problem Solving  |  59.2 |
+| 200266202  | Qaswar     |             | Rai         | ali202@cs.uregina.ca     | CS215       | Web and Database Programming     |  82.6 |
+| 200266203  | Nicholas   |             | Phongsavath | phosan203@cs.uregina.ca  | CS100       | Introduction to Computers        |   100 |
+| 200266203  | Nicholas   |             | Phongsavath | phosan203@cs.uregina.ca  | CS215       | Web and Database Programming     |   100 |
+| 200266204  | Nikki      |             | Pawlowski   | pawlow204@cs.uregina.ca  | CS100       | Introduction to Computers        |    65 |
+| 200266204  | Nikki      |             | Pawlowski   | pawlow204@cs.uregina.ca  | CS210       | Data Structures and Abstractions |  92.5 |
+| 200266205  | Nathan     |             | Ellis       | elli205@cs.uregina.ca    | CS110       | Programming and Problem Solving  |  92.5 |
+| 200266205  | Nathan     |             | Ellis       | elli205@cs.uregina.ca    | CS210       | Data Structures and Abstractions |  70.2 |
+| 200266206  | John       |             | Erick       | eric20j206@cs.uregina.ca | CS100       | Introduction to Computers        |    86 |
+| 200266206  | John       |             | Erick       | eric20j206@cs.uregina.ca | CS110       | Programming and Problem Solving  |    87 |
+| 200266206  | John       |             | Erick       | eric20j206@cs.uregina.ca | CS210       | Data Structures and Abstractions |    81 |
+| 200266206  | John       |             | Erick       | eric20j206@cs.uregina.ca | CS215       | Web and Database Programming     |    83 |
+| 200266207  | Jody-Lee   | Van         | DerVelden   | vanervj207@cs.uregina.ca | CS100       | Introduction to Computers        |    59 |
+| 200266207  | Jody-Lee   | Van         | DerVelden   | vanervj207@cs.uregina.ca | CS110       | Programming and Problem Solving  |  50.2 |
+| 200266207  | Jody-Lee   | Van         | DerVelden   | vanervj207@cs.uregina.ca | CS210       | Data Structures and Abstractions |    67 |
+| 200266207  | Jody-Lee   | Van         | DerVelden   | vanervj207@cs.uregina.ca | CS215       | Web and Database Programming     |  85.6 |
+| 200266208  | Sabrina    |             | Tram        | tra200s208@cs.uregina.ca | CS100       | Introduction to Computers        |    70 |
+| 200266208  | Sabrina    |             | Tram        | tra200s208@cs.uregina.ca | CS110       | Programming and Problem Solving  |    80 |
+| 200266208  | Sabrina    |             | Tram        | tra200s208@cs.uregina.ca | CS210       | Data Structures and Abstractions |  88.5 |
+| 200266209  | Ke         |             | Tao         | taoke209@cs.uregina.ca   | CS110       | Programming and Problem Solving  |  66.5 |
+| 200266209  | Ke         |             | Tao         | taoke209@cs.uregina.ca   | CS210       | Data Structures and Abstractions |  77.5 |
+| 200266209  | Ke         |             | Tao         | taoke209@cs.uregina.ca   | CS215       | Web and Database Programming     |  86.5 |
+| 200266210  | Yupeng     |             | Xu          | x210@cs.uregina.ca       | CS100       | Introduction to Computers        |    89 |
+| 200266210  | Yupeng     |             | Xu          | x210@cs.uregina.ca       | CS210       | Data Structures and Abstractions |    92 |
+| 200266211  | Chidinma   |             | Ukabam      | ukaba211@cs.uregina.ca   | CS100       | Introduction to Computers        |    99 |
+| 200266212  | Mandeep    |             | Ghotra      | gho212@cs.uregina.ca     | CS215       | Web and Database Programming     |    98 |
++------------+------------+-------------+-------------+--------------------------+-------------+----------------------------------+-------+
+30 rows in set (0.00 sec)
+
+mysql> create table student_info (
+    -> student_ID varchar (30) NOT NULL,
+    -> first_Name varchar (30) NOT NULL,
+    -> middle_Name varchar (30),
+    -> last_Name varchar (30) NOT NULL,
+    -> email varchar (100) NOT NULL
+    -> );
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> 
+mysql> create table courses (
+    -> course_Name varchar (30) NOT NULL,
+    -> course_Description varchar (255) NOT NULL
+    -> );
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> create table marks (
+    -> student_ID varchar (30) NOT NULL,
+    -> course_Name varchar (30) NOT NULL,
+    -> marks real NOT NULL
+    -> );
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> show tables;
++------------------+
+| Tables_in_pko319 |
++------------------+
+| courses          |
+| marks            |
+| student_info     |
+| students         |
++------------------+
+4 rows in set (0.00 sec)
+
+mysql> insert into student_info (student_ID, first_Name, middle_Name, last_Name, email)
+    -> select distinct student_ID, first_Name, middle_Name, last_Name, email
+    -> from students;
+Query OK, 12 rows affected (0.00 sec)
+Records: 12  Duplicates: 0  Warnings: 0
+
+mysql> insert into courses (course_Name, course_Description)
+    -> select distinct course_Name, course_Description
+    -> from students;
+Query OK, 4 rows affected (0.00 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> insert into marks (student_ID, course_Name, marks)
+    -> select distinct student_ID, course_Name, marks
+    -> from students;
+Query OK, 30 rows affected (0.00 sec)
+Records: 30  Duplicates: 0  Warnings: 0
+
+mysql> select * from student_info;
++------------+------------+-------------+-------------+--------------------------+
+| student_ID | first_Name | middle_Name | last_Name   | email                    |
++------------+------------+-------------+-------------+--------------------------+
+| 200266200  | Ahmed      | Al          | Abbad       | alabba200@cs.uregina.ca  |
+| 200266202  | Qaswar     |             | Rai         | ali202@cs.uregina.ca     |
+| 200266203  | Nicholas   |             | Phongsavath | phosan203@cs.uregina.ca  |
+| 200266204  | Nikki      |             | Pawlowski   | pawlow204@cs.uregina.ca  |
+| 200266205  | Nathan     |             | Ellis       | elli205@cs.uregina.ca    |
+| 200266206  | John       |             | Erick       | eric20j206@cs.uregina.ca |
+| 200266207  | Jody-Lee   | Van         | DerVelden   | vanervj207@cs.uregina.ca |
+| 200266208  | Sabrina    |             | Tram        | tra200s208@cs.uregina.ca |
+| 200266209  | Ke         |             | Tao         | taoke209@cs.uregina.ca   |
+| 200266210  | Yupeng     |             | Xu          | x210@cs.uregina.ca       |
+| 200266211  | Chidinma   |             | Ukabam      | ukaba211@cs.uregina.ca   |
+| 200266212  | Mandeep    |             | Ghotra      | gho212@cs.uregina.ca     |
++------------+------------+-------------+-------------+--------------------------+
+12 rows in set (0.00 sec)
+
+mysql> select * from courses;
++-------------+----------------------------------+
+| course_Name | course_Description               |
++-------------+----------------------------------+
+| CS100       | Introduction to Computers        |
+| CS110       | Programming and Problem Solving  |
+| CS210       | Data Structures and Abstractions |
+| CS215       | Web and Database Programming     |
++-------------+----------------------------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from marks;
++------------+-------------+-------+
+| student_ID | course_Name | marks |
++------------+-------------+-------+
+| 200266200  | CS100       |  90.5 |
+| 200266200  | CS110       |    85 |
+| 200266200  | CS210       |    90 |
+| 200266202  | CS100       |  72.5 |
+| 200266202  | CS110       |  59.2 |
+| 200266202  | CS215       |  82.6 |
+| 200266203  | CS100       |   100 |
+| 200266203  | CS215       |   100 |
+| 200266204  | CS100       |    65 |
+| 200266204  | CS210       |  92.5 |
+| 200266205  | CS110       |  92.5 |
+| 200266205  | CS210       |  70.2 |
+| 200266206  | CS100       |    86 |
+| 200266206  | CS110       |    87 |
+| 200266206  | CS210       |    81 |
+| 200266206  | CS215       |    83 |
+| 200266207  | CS100       |    59 |
+| 200266207  | CS110       |  50.2 |
+| 200266207  | CS210       |    67 |
+| 200266207  | CS215       |  85.6 |
+| 200266208  | CS100       |    70 |
+| 200266208  | CS110       |    80 |
+| 200266208  | CS210       |  88.5 |
+| 200266209  | CS110       |  66.5 |
+| 200266209  | CS210       |  77.5 |
+| 200266209  | CS215       |  86.5 |
+| 200266210  | CS100       |    89 |
+| 200266210  | CS210       |    92 |
+| 200266211  | CS100       |    99 |
+| 200266212  | CS215       |    98 |
++------------+-------------+-------+
+30 rows in set (0.00 sec)
+
+mysql> exit
+Bye
+Script on hercules[22]% exit
+exit
+
+Script done on Tue Mar 12 16:44:48 2019

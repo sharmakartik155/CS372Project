@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!-- html 5 -->
+<!-- PROPERTY OF PHILIP OTTENBREIT. © 2019. DO NOT COPY WITHOUT WRITTEN PERMISSION. CONTACT: pko319@uregina.ca.  -->
+
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Hey! Create Question</title>
+		<script type="text/javascript" src="login_header_validate.js"></script>
+		<script type="text/javascript" src="question_validate.js"></script>  
+		<link rel="stylesheet" type="text/css" href="sm_scr.css" />
+		<link rel="stylesheet" type="text/css" href="lg_scr.css" media= "screen and (min-width: 305px)">
+	</head>
+	
+	<body>
+
+		<header>
+			<h1 class="title">Hey! Q&A</h1>
+			
+			<div class="login">
+				<form method="post" action="signup.html">
+					<button class="button" type="submit">Register</button>
+				</form>
+			</div>
+			
+			<form id="login_header" method="post">
+				<div class="login">
+					<p>Email:&nbsp;</p><input size="20" name="email" type="text">
+					<p>&nbsp;</p>
+					<p>Password:&nbsp;</p><input size="20" name="password" type="password">
+					<p>&nbsp;</p>
+					<button class=button type="submit">Login</button>
+				</div>
+				<div id="header_login_messages" class="login" style="clear:both;">
+					<label id="email_message" class="error_message"></label>
+					<label id="password_message" class="error_message"></label>
+				</div>
+			</form>
+			<script type = "text/javascript"  src = "login_header_register.js" ></script>
+		</header>
+		
+		<section>
+			<h1>Post Question</h1>
+			<div class=submission>
+				<form id="question_create" method="post">
+					<p>Question:&nbsp;<textarea name="ask_question" rows="6" cols="60"></textarea></p><p id="character_counter">0 of 200</p><br/>
+					<p id="question_message" style="color:red;"></p><br />
+					<p>Post As:</p><br/>
+						<input type="radio" name="post-as" value="Alias" checked> Alias<br/>
+ 						<input type="radio" name="post-as" value="Username"> Username<br/>
+ 						<input type="radio" name="post-as" value="Anonymous"> Anonymous<br/>
+					<br/>			
+					<button type="submit" onclick="">Post Question</button>
+					<script type = "text/javascript"  src = "question_register.js" ></script>
+				</form>
+			</div>
+		</section>
+		
+		<footer>
+			<div class=nav>
+				<h3><a href="index.html"> Homepage </a></h3>
+				<h3><a href="signup.html"> Register </a></h3>
+				<h3><a href="q_manage.html"> Manage Account </a></h3>
+				<h3><a href="q_create.html"> Create Question </a></h3>
+				<h3><a href="q_random.html"> Random Question </a></h3>
+			</div>
+		</footer>
+
+	</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+

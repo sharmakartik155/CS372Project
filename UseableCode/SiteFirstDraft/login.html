@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <title>Login</title>
+        <script type="text/javascript" src="javascript/validate.js"></script>
+    </head>
+    <body>
+        <h1>Login</h1>
+        <form id="Login" method="post">
+            <input type="hidden" name="submitted" value="1"/>
+            <table>
+                <tr>
+                    <td><label id="email_msg" class="err_msg"></label></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="text" name="email" size="30" /></td>
+                </tr>
+                <tr>
+                    <td><label id="uname_msg" class="err_msg"></label></td>
+                </tr>
+                <tr>
+                    <td><label id="pswd_msg" class="err_msg"></label></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="password" name="password" size="30" /></td>
+                </tr>
+                <tr>
+                    <td><label id="pswdr_msg" class="err_msg"></label></td>
+                </tr>
+            </table>
+            <input type="submit" value="Login" /> 
+        </form>
+        <script type="text/javascript" src="javascript/login.js"></script>
+        <p><a href="index.html">Back to home page</a></p>
+    </body>
+</html>

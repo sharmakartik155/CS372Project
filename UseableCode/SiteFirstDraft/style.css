@@ -1,0 +1,93 @@
+a {
+    color: #809fff
+}
+
+body {
+    background-color: #282828;
+    color: #C0C0C0;
+    font-family:Verdana,sans-serif;
+    font-size:100%;
+    margin:0;
+}
+
+.button-create {
+    background-color: #282828;
+    border: 2px solid black;
+	border-radius: 8px;
+    color: #C0C0C0;
+    cursor: pointer;
+    float: right;
+    font-weight: bold;
+    font-size: 150%;
+	text-align: right;
+    transition-duration: 0.4s;
+}
+
+.button-create:hover {
+    background-color: #C0C0C0;
+    color: #282828;
+}
+
+.button-login-signup {
+    background-color: #282828;
+    border: 2px solid black;
+	border-radius: 8px;
+    color: #C0C0C0;
+    cursor: pointer;
+    float: right;
+    font-weight: bold;
+    font-size: 150%;
+    margin-top: 3px;
+    margin-left: 10px;
+    margin-right: 10px;
+	text-align: right;
+    transition-duration: 0.4s;
+}
+
+.button-login-signup:hover {
+    background-color: #C0C0C0;
+    color: #282828;
+}
+
+.company-name {
+    float: left;
+    margin: 0;
+    overflow: hidden;
+    min-width: 590px;
+    width: 590px;
+}
+
+.content {
+  margin-top: 50px;
+}
+
+.logo {
+    border-radius: 50%;
+	float: left;
+    height: 39px;
+    vertical-align: middle;
+	width: 39px;
+}
+
+.overview {
+    float: left;
+    font-size: 150%;
+    padding: 0px 10px;
+    width: 700px;
+}
+
+.preview-image {
+    height: auto;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.top-bar {
+    background-color: #404040;
+    height: 39px;
+    overflow: hidden;
+    padding: 0px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}

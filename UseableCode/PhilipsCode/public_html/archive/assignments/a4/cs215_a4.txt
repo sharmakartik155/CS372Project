@@ -1,0 +1,156 @@
+ssh hercules
+pko319
+**********
+
+script pko319.log
+
+mysql -p pko319
+**********
+
+SHOW TABLES;
+
+--PART ONE FROM ASSIGNMENT FOUR
+
+CREATE TABLE Users (
+	user_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	id_user INT NOT NULL AUTO_INCREMENT, PRIMARY KEY (id_user),
+	
+	user_alias VARCHAR(255) NOT NULL UNIQUE,
+	user_email VARCHAR(255) NOT NULL UNIQUE,
+	user_password VARCHAR(255) NOT NULL,
+	user_img_url VARCHAR(255) NOT NULL,
+	user_birthdate DATE NOT NULL
+);
+
+CREATE TABLE Questions (
+	post_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	id_post INT NOT NULL AUTO_INCREMENT,
+	id_user INT NOT NULL,
+	
+	post_content_head VARCHAR(255) NOT NULL,
+	post_content_body VARCHAR(2048) NOT NULL,
+	
+	PRIMARY KEY (id_post),
+	FOREIGN KEY (id_user) REFERENCES Users (id_user) ON DELETE RESTRICT
+);
+
+CREATE TABLE Answers (
+	reply_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	id_reply INT NOT NULL AUTO_INCREMENT,
+	id_post INT NOT NULL,
+	id_user INT NOT NULL,
+	
+	reply_content_body VARCHAR(2048) NOT NULL,
+	
+	PRIMARY KEY (id_reply),
+	FOREIGN KEY (id_user) REFERENCES Users(id_user),
+	FOREIGN KEY (id_post) REFERENCES Questions(id_post)
+);
+
+CREATE TABLE Votes (
+	vote_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	id_vote INT NOT NULL AUTO_INCREMENT,
+	id_reply INT NOT NULL,
+	id_user INT NOT NULL,
+	
+	vote_direction CHAR(1),
+	
+	PRIMARY KEY (id_vote),
+	FOREIGN KEY (id_user) REFERENCES Users(id_user),
+	FOREIGN KEY (id_reply) REFERENCES Answers(id_reply)
+);
+-- vote_direction == (u|d|NULL) == ensures that one user can only vote on one answer once
+--ADD CONSTRAINT so that (id_vote_reply + id_vote_user) has to be unique?
+
+
+
+
+
+
+--PART TWO FROM ASSIGNMENT FOUR
+
+INSERT INTO Users (user_email, user_password, user_alias, user_img_url, user_birthdate)
+VALUES ('john@ottenbreit.com', '1234567', 'johnottenbreit', '../users/johnottenbreit/profile.jpg', '1997-09-03');
+INSERT INTO Users (user_email, user_password, user_alias, user_img_url, user_birthdate)
+VALUES ('philip@ottenbreit.com', '1234567', 'philipottenbreit', '../users/philipottenbreit/profile.jpg', '1999-03-06');
+INSERT INTO Users (user_email, user_password, user_alias, user_img_url, user_birthdate)
+VALUES ('peter@ottenbreit.com', '1234567', 'peterottenbreit', '../users/peterottenbreit/profile.jpg', '2000-12-13');
+INSERT INTO Users (user_email, user_password, user_alias, user_img_url, user_birthdate)
+VALUES ('lucia@ottenbreit.com', '1234567', 'luciaottenbreit', '../users/luciaottenbreit/profile.jpg', '2003-05-07');
+INSERT INTO Users (user_email, user_password, user_alias, user_img_url, user_birthdate)
+VALUES ('gemma@ottenbreit.com', '1234567', 'gemmaottenbreit', '../users/gemmaottenbreit/profile.jpg', '2005-08-08');
+INSERT INTO Users (user_email, user_password, user_alias, user_img_url, user_birthdate)
+VALUES ('aimee@ottenbreit.com', '1234567', 'aimeeottenbreit', '../users/aimeeottenbreit/profile.jpg', '2007-12-20');
+INSERT INTO Users (user_email, user_password, user_alias, user_img_url, user_birthdate)
+VALUES ('william@ottenbreit.com', '1234567', 'williamottenbreit', '../users/williamottenbreit/profile.jpg', '2009-12-25');
+
+
+INSERT INTO Questions (id_user, post_content_head, post_content_body)
+VALUES (8, 'Why?', 'Because.');
+INSERT INTO Questions (id_user, post_content_head, post_content_body)
+VALUES (7, 'Yo!', 'Heyo.');
+
+INSERT INTO Answers (id_post, id_user, reply_content_body)
+VALUES (1, 1, 'Maybe you dont get to choose if youre a chauch or not...');
+
+
+INSERT INTO Votes (id_reply, id_user, vote_direction)
+VALUES (1, 1,'u');
+
+
+--PART THREE FROM ASSIGNMENT FOUR
+
+-- a.
+
+SELECT *
+FROM Questions
+ORDER BY timestamp_post DESC
+LIMIT 5;
+
+
+-- b.
+
+SELECT id_user, user_alias, user_img_url
+FROM Users
+WHERE user_username='philipottenbreit' AND user_password='1234567';
+
+
+-- c.
+
+--"GIVEN id_user, RETURN (* Questions FROM id_user AND
+
+--			SELECT
+--				- * FROM Questions WHERE id_post_user = id_user
+--					- id_post
+--					- id_post_user
+--					- post_timestamp
+--					- post_content_head
+--					- post_content_body
+--						- * FROM Answers WHERE id_reply_post = id_post
+--							- id_reply
+--							- id_reply_user
+--							- reply_timestamp
+--							- reply_content_body
+--								- * FROM Votes WHERE id_vote_reply = id_reply
+--									- vote_direction
+
+
+
+
+
+--returns all of a user's questions
+SELECT U.id_user, Q.id_post, Q.post_timestamp, Q.post_content_head, Q.post_content_body, A.id_reply, A.reply_timestamp, A.reply_content_body, V.vote_direction.id_post, COUNT(*);
+FROM (((Users U
+LEFT JOIN Questions Q)
+LEFT JOIN Answers A ON A.id_reply_post = Q.id_post)
+LEFT JOIN Votes V ON V.id_reply = A.id_vote_reply)
+WHERE Q.id_post_user = U.id_user
+ORDER BY Q.id_post
+GROUP BY V.
+
+
+
+
+
+
+
