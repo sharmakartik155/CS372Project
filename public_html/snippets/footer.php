@@ -1,5 +1,5 @@
-		<footer>
-			<div class=nav>
+		<footer class="w3-container">
+			<div>
 				<h3><a href="index.php"> Homepage </a></h3>
 				<h3><a href="view.php"> Random Question </a></h3>
 <?php if (isset($_SESSION["email"]) && $_SESSION["email"]) { ?>
