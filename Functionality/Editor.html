@@ -10,7 +10,7 @@ while (true) {
 	delay(delayTime);
 	AJAX_Check();
 	delay(delayTime);
-	
+
 	editBox = document.getElementById("editBox");
 	editBoxHASH = hash(editBox);
 	if (editBoxHASH != last_editBoxHASH) {
@@ -23,14 +23,11 @@ while (true) {
 }
 
 void AJAX_Send (bool updated, string NewFile) {
-	if (updated) {
-		content = createJSON(true);
-		content.AppendElement(NewFile);
-		SendOverHTTP(content);
-	} else {
-		content = createJSON(false);
-		SendOverHTTP(content);
-	}
+	content = createJSON(updated)
+    if (updated) {
+			content.AppendElement(NewFile);
+    }
+	SendOverHTTP(content);
 }
 
 
