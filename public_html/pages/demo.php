@@ -1,83 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Ask Question</title>
 <?php include '../snippets/head.php'; ?>
 	</head>
-	<body>
+	<body class="theme-dark-secondary">
 <?php include '../snippets/header.php'; ?>
-		<section>
-		</section>
+        <div class="w3-margin left-element" style="width:600px;">
+            <form action="/docs.php" >
+                <textarea id="textarea" class="theme-dark-primary textarea" placeholder="Type here to get started!"></textarea>
+                <button class="w3-button w3-block theme-dark-primary w3-section w3-padding" style="width:600px;"type="submit" value="save">Save</button>
+            </form>
+            <h2 class="w3-center">Themes</h2>
+            <button onclick="changeTheme(classList.item(0))" class="theme-dark-primary theme-button w3-section w3-padding" type="submit">1</button>
+            <button onclick="changeTheme(classList.item(0))" class="theme-white theme-button w3-section w3-padding" type="submit">2</button>
+            <button onclick="changeTheme(classList.item(0))" class="theme-grey-orange theme-button w3-section w3-padding" type="submit">3</button>
+            <button onclick="changeTheme(classList.item(0))" class="theme-blue-yellow theme-button w3-section w3-padding" type="submit">4</button>
+            <button onclick="changeTheme(classList.item(0))" class="theme-blue-green theme-button w3-section w3-padding" type="submit">5</button>
+        </div>
+        <script>
+            function changeTheme(newTheme){
+                document.getElementById('textarea').classList.replace(document.getElementById('textarea').classList.item(0), newTheme);
+            } 
+        </script>
+        <div class="w3-margin overview">
+            <h1 class="w3-center">Real-time Collaboration Outliner</h1>
+            OutlineR was created to enhance communication and support development. With this tool you can work on your projects while simultaneously communicating and improving the speed of project development!
+            <h1 class="w3-center w3-margin-top">Features</h1>
+            <ul>
+                <li>Create and manage an account on the website</li>
+                <li>Create, save, share, modify and export text documents</li>
+                <li>See who is editing your document in real-time and see the edits in real time</li>
+                <li>Logs of edits for each document</li>
+                <li>Collapsing hierarchy structure inside of the text documents</li>
+                <li>Create and use document templates</li>
+                <li>Search tool to search for keywords in your document</li>
+                <li>Receive notifications when your document has been edited by someone</li>
+            </ul>
+            <h2 class="w3-center">Register now to start!</h2>
+        </div>
 <?php include '../snippets/footer.php'; ?>
 	</body>
-</html>
-
-
-
-<html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="w3.css">
-        <link rel="stylesheet" href="style.css">
-        <style>html, body, h1, h2, h3, h4, h5, h6 {font-family: "Times New Roman", serif;}</style>
-        <title>OutlineR</title>
-    </head>
-    <body class="w3-dark-grey">
-        <div class="w3-bar w3-black">
-            <a href="outliner.html"><img src="logo.png" class="w3-bar-item w3-hover-opacity" style="width:70px; height:auto;"></a>
-            <div class="w3-bar-item bar-font-size">OutlineR</div>
-            <button onclick="document.getElementById('registerId').style.display='block'" class="w3-bar-item bar-font-size w3-button w3-right">Register</button>
-            <div id="registerId" class="w3-modal">
-                <div class="w3-modal-content w3-card-4 w3-animate-zoom w3-dark-grey" style="max-width:600px">
-                    <div class="w3-center">
-                        <span onclick="document.getElementById('registerId').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
-                        <img src="default_avatar.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
-                    </div>
-                    <form class="w3-container" action="/action_page.php">
-                        <div class="w3-section">
-                            <label><b>Email</b></label>
-                            <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Email" name="email" required>
-                            <label><b>Username</b></label>
-                            <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname" required>
-                            <label><b>Password</b></label>
-                            <input class="w3-input w3-border w3-margin-bottom" type="password" placeholder="Enter Password" name="psw" required>
-                            <label><b>Confirm Password</b></label>
-                            <input class="w3-input w3-border w3-margin-bottom" type="password" placeholder="Confirm Password" name="pswconfirm" required>
-                            <label><b>Upload Avatar</b></label>
-                            <input type="file" name="avatar" id="avatar">
-                            <button class="w3-button w3-block w3-grey w3-section w3-padding" type="submit">Register</button>
-                            <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Remember me
-                        </div>
-                    </form>
-                    <div class="w3-container w3-border-top w3-padding-16 w3-dark-grey">
-                        <button onclick="document.getElementById('registerId').style.display='none'" type="button" class="w3-button w3-grey">Cancel</button>
-                        <span class="w3-right w3-padding w3-hide-small">Already have an account?<a href="#"> Login here.</a></span>
-                    </div>
-                </div>
-            </div>
-            <button onclick="document.getElementById('loginId').style.display='block'" class="w3-bar-item bar-font-size w3-button w3-right">Login</button>
-            <div id="loginId" class="w3-modal">
-                <div class="w3-modal-content w3-card-4 w3-animate-zoom w3-dark-grey" style="max-width:600px">
-                    <div class="w3-center">
-                        <span onclick="document.getElementById('loginId').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
-                        <img src="default_avatar.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
-                    </div>
-                    <form class="w3-container" action="/action_page.php">
-                        <div class="w3-section">
-                            <label><b>Username</b></label>
-                            <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname" required>
-                            <label><b>Password</b></label>
-                            <input class="w3-input w3-border" type="password" placeholder="Enter Password" name="psw" required>
-                            <button class="w3-button w3-block w3-grey w3-section w3-padding" type="submit">Login</button>
-                            <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Remember me
-                        </div>
-                    </form>
-                    <div class="w3-container w3-border-top w3-padding-16 w3-dark-grey">
-                        <button onclick="document.getElementById('loginId').style.display='none'" type="button" class="w3-button w3-grey">Cancel</button>
-                        <span class="w3-right w3-padding w3-hide-small"><a href="#">Forgot password?</a></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </body>
 </html>
