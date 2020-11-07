@@ -1,3 +1,78 @@
 ﻿.bar-font-size {
-    font-size: 25px
+    font-size: 25px;
+}
+
+.overview {
+    display: inline;
+    float: left;
+    font-size: 150%;
+    position: absolute;
+    width: 500px;
+}
+
+.left-element {
+    display: inline-block;
+    float: left;
+}
+
+.right-element {
+    display: inline-block;
+    float: left;
+}
+
+.textarea {
+    font-size: 150%;
+    width:600px;
+    height:700px;
+    resize: none;
+}
+
+.theme-button {
+    border:none;
+    display:inline-block;
+    padding:8px 16px;
+    vertical-align:middle;
+    overflow:hidden;
+    text-decoration:none;
+    color:inherit;
+    background-color:inherit;
+    text-align:center;
+    cursor:pointer;
+    white-space:nowrap;
+    font-size: 150%;
+}
+
+.theme-button:hover {
+    opacity: 0.7;
+}
+
+/*Themes*/
+.theme-dark-primary {
+    background: #121212;
+    color: #EEEEEE;
+}
+
+.theme-dark-secondary {
+    background: #242424;
+    color: #EEEEEE;
+}
+
+.theme-white {
+    background: #FFFFFF;
+    color: #000000;
+}
+
+.theme-grey-orange {
+    background: #36342b;
+    color: #c76312;
+}
+
+.theme-blue-yellow {
+    background: #143D59;
+    color: #F4B41A;
+}
+
+.theme-blue-green {
+    background: #293250;
+    color: #6DD47E;
 }
