@@ -26,10 +26,10 @@ CREATE TABLE Docs (
 	doc_requestor		INT,
 
 	doc_title 		VARCHAR(255) NOT NULL DEFAULT 'My Doc',
-	doc__content 		TEXT NOT NULL, 				/* 64KB */
-	doc__hash		VARCHAR(255) NOT NULL,
+	doc_content 		TEXT NOT NULL, 				/* 64KB */
+	doc_hash		VARCHAR(255) NOT NULL,
 
-	PRIMARY KEY (doc__id),
+	PRIMARY KEY (doc_id),
 	FOREIGN KEY (doc_creator) REFERENCES Users(user_id),
 	FOREIGN KEY (doc_editor) REFERENCES Users(user_id),
 	FOREIGN KEY (doc_requestor) REFERENCES Users(user_id)
