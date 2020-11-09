@@ -2,6 +2,10 @@
     font-size: 25px;
 }
 
+.error-message {
+	color: red;
+}
+
 .overview {
     display: inline;
     float: left;
@@ -46,6 +50,55 @@
     opacity: 0.7;
 }
 
+
+div.register > div {
+	width: 280px;
+	max-width: 100%;
+}
+
+
+
+div.register form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+div.submission input[type=text], div.submission textarea {
+	width: 600px;
+	max-width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 5px solid black;
+}
+
+div.submission input[type=text]:focus, div.submission textarea:focus {
+	background-color: linen;
+}
+
+img {
+	image-orientation: from-image;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*Themes*/
 .theme-dark-primary {
     background: #121212;
@@ -75,4 +128,59 @@
 .theme-blue-green {
     background: #293250;
     color: #6DD47E;
+}
+
+/* SEXY-NOTIFICATIONS */
+
+#sexy_notification {
+  visibility: hidden;
+  background-color: white;
+  color: black;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  width: 400px;
+  left: 50%;
+  margin-left: -215px;
+  bottom: 30px;
+  font-size: 16px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#sexy_notification.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 4.5s;
+  animation: fadein 0.5s, fadeout 0.5s 4.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;} 
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;} 
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
 }
