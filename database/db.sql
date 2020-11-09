@@ -45,20 +45,30 @@ CREATE TABLE Access (
 	PRIMARY KEY (access_id),
 	FOREIGN KEY (access_doc) REFERENCES Docs(doc_id),
 	FOREIGN KEY (access_user) REFERENCES Users(user_id)
-)
+);
 
 
 
 CREATE TABLE Themes (
-	theme_id 		INT NOT NULL AUTO_INCREMENT,
+	theme_id 	INT NOT NULL AUTO_INCREMENT,
+	name 		VARCHAR(64) NOT NULL,
+	font 		VARCHAR(16) NOT NULL DEFAULT 'Arial',
+	bkgd 		VARCHAR(16) NOT NULL DEFAULT 'white', 			/* css interpretable color */
+	color 		VARCHAR(16) NOT NULL DEFAULT 'black',
 
-	theme_title 		VARCHAR(64) NOT NULL,
-	theme_font 		VARCHAR(16) NOT NULL DEFAULT 'Arial',
-	theme_background 	VARCHAR(16) NOT NULL DEFAULT 'white', 			/* css interpretable color */
-	theme_text_color 	VARCHAR(16) NOT NULL DEFAULT 'black',
-	theme_note_color	VARCHAR(16) NOT NULL DEFAULT 'grey',
-
-	PRIMARY KEY (format_id)
+	PRIMARY KEY (theme_id)
 );
 
-INSERT INTO Themes (theme_title, theme_font, theme_background, theme_text_color, theme_note_color) VALUES ('Default', 'arial', 'white', 'black', grey);
+INSERT INTO Themes (bkgd, color, name, font) VALUES ('#FFFFFF', '#000000', 'norm', 'Times New Roman');
+INSERT INTO Themes (bkgd, color, name, font) VALUES ('#121212', '#EEEEEE', 'dark', 'Times New Roman');
+INSERT INTO Themes (bkgd, color, name, font) VALUES ('#242424', '#EEEEEE', 'dusk', 'Times New Roman');
+INSERT INTO Themes (bkgd, color, name, font) VALUES ('#36342b', '#c76312', 'rustic', 'Times New Roman');
+INSERT INTO Themes (bkgd, color, name, font) VALUES ('#143D59', '#F4B41A', 'heaven', 'Times New Roman');
+INSERT INTO Themes (bkgd, color, name, font) VALUES ('#293250', '#6DD47E', 'oceans', 'Times New Roman');
+
+
+
+
+
+
+
