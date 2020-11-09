@@ -25,7 +25,7 @@ CREATE TABLE Docs (
 	doc_editor		INT,
 	doc_requestor		INT,
 
-	doc_title 		VARCHAR(255) NOT NULL DEFAULT '',
+	doc_title 		VARCHAR(255) NOT NULL DEFAULT 'My Doc',
 	doc__content 		TEXT NOT NULL, 				/* 64KB */
 	doc__hash		VARCHAR(255) NOT NULL,
 
