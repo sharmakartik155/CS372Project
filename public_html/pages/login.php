@@ -1,5 +1,5 @@
 <?php session_start(); ?>
-<?php	if (isset($_SESSION["email"]) && $_SESSION["email"]) { header("Location: account.php"); exit(); } ?>
+<?php	if (isset($_SESSION["email"]) && $_SESSION["email"]) { header("Location: docs.php"); exit(); } ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,9 +7,8 @@
 		<title>Login</title>
 <?php include '../snippets/head.php'; ?>
 	</head>
-	<body>
+	<body class="theme-dark-secondary">
 <?php include '../snippets/header.php'; ?>
-
 
 
 <?php //IF INPUT VALIDATES, SET SESSION VARIABLES, REDIRECT
@@ -19,7 +18,7 @@
 	if ((isset($_POST["email"]) && $_POST["email"]) || (isset($_POST["pswrd"]) && $_POST["pswrd"]))
 	{
 		//OPEN DATABASE
-		$db = new mysqli("localhost", "pko319", "M7#rh6Et", "pko319");
+		$db = new mysqli("localhost", "soren200", "Asdfasdf", "soren200");
 		if ($db->connect_error) { die ("Database connection failed: " . $db->connect_error); }
 		
 		$input_email = htmlspecialchars(strip_tags($db->real_escape_string(trim($_POST["email"]))));
@@ -61,7 +60,7 @@
 				//COULD STOP HERE, BUT WOULD BECOME SUBJECT TO EMAIL POLLING TIMING ATTACK
 				//THEN AGAIN, IN MY SYSTEM EMAILS ARE NOT AT ALL SECRET, AND ARE SHOWN ON USER PAGES
 				//IRREGARDLESS, I'LL MAINTAIN BEST PRACTICES FOR PROPRIETY's SAKE
-				echo "EMAIL NOT FOUND";
+				$_SESSION['handoff'] .= "EMAIL NOT FOUND";
 			}
 			
 			$user_row = $user_res->fetch_assoc();
@@ -100,7 +99,6 @@
 				{
 					$_SESSION['email'] = $user_row['user_email'];
 					$_SESSION['alias'] = $user_row['user_alias'];
-					$_SESSION['birth'] = $user_row['user_birth'];
 					$_SESSION['image'] = $user_row['user_image'];
 					$_SESSION['user_id'] = $user_row['user_id'];
 				
@@ -116,25 +114,22 @@
 		$db->close();
 	}
 ?>
-		<section>
+		<section class="w3-container">
 			<h1>Login</h1>
-			<div class="register">
-				<div>
-					<form id="login_main_form" method="post" action="login.php">
-						<p>Email:&nbsp;
-							<input size="20" name="email" type="text" value=<?="\"" . $input_email . "\""?>></p><br />
-							<label id="login_email_message" class="error_message"></label>
+			<div>
+				<form id="login_main_form" method="post" action="login.php">
+					<p>Email:&nbsp;
+						<input size="20" name="email" type="text" value=<?="\"" . $input_email . "\""?>></p><br />
+						<label id="login_email_message" class="error-message"></label>
+					
+					<p>Password:&nbsp;
+						<input size="20" name="pswrd" type="password" value=<?="\"" . $input_pswrd . "\""?>></p><br />
+						<label id="login_pswrd_message" class="error-message"></label>
 						
-						<p>Password:&nbsp;
-							<input size="20" name="pswrd" type="password" value=<?="\"" . $input_pswrd . "\""?>></p><br />
-							<label id="login_pswrd_message" class="error_message"></label>
-							
-						<input type="submit" value="Login">
-							<script type="text/javascript" src="../js/validate_login_main.js"></script>
-							<script type="text/javascript" src="../js/register_login_main.js"></script>
-							
-					</form>
-				</div>
+					<input type="submit" value="Login">
+						<script type="text/javascript" src="../js/validate_login_main.js"></script>
+						<script type="text/javascript" src="../js/register_login_main.js"></script>
+				</form>
 			</div>
 		</section>
 <?php include '../snippets/footer.php'; ?>
