@@ -1,4 +1,16 @@
 <!DOCTYPE html>
+
+<?php
+session_start();
+if (isset($_SESSION["email"]) || $_SESSION["email"])
+{
+	header("Location: docs.php");
+	exit();
+}
+ ?>
+
+
+
 <html lang="en">
 	<head>
 <?php include '../snippets/head.php'; ?>
@@ -20,7 +32,7 @@
         <script>
             function changeTheme(newTheme){
                 document.getElementById('textarea').classList.replace(document.getElementById('textarea').classList.item(0), newTheme);
-            } 
+            }
         </script>
         <div class="w3-margin overview">
             <h1 class="w3-center">Real-time Collaboration Outliner</h1>
