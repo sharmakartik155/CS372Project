@@ -18,7 +18,7 @@
 	if ((isset($_POST["email"]) && $_POST["email"]) || (isset($_POST["pswrd"]) && $_POST["pswrd"]))
 	{
 		//OPEN DATABASE
-		<?php include '../snippets/open_db.php'; ?>
+		$db = new mysqli("localhost", "soren200", "Asdfasdf", "soren200");
 		if ($db->connect_error) { die ("Database connection failed: " . $db->connect_error); }
 
 		$input_email = htmlspecialchars(strip_tags($db->real_escape_string(trim($_POST["email"]))));
@@ -121,7 +121,7 @@
 					<p>Email:&nbsp;
 						<input size="20" name="email" type="text" value=<?="\"" . $input_email . "\""?>></p><br />
 						<label id="login_email_message" class="error-message"></label>
-
+					
 					<p>Password:&nbsp;
 						<input size="20" name="pswrd" type="password" value=<?="\"" . $input_pswrd . "\""?>></p><br />
 						<label id="login_pswrd_message" class="error-message"></label>

@@ -7,7 +7,7 @@
 <?php include '../snippets/header.php'; ?>
         <div class="w3-margin left-element" style="width:600px;">
             <form action="/docs.php" >
-                <textarea id="textarea" class="theme-dark-primary textarea" placeholder="Type here to get started!"></textarea>
+                <textarea id="textarea" class="theme-dark-primary textarea-demo" placeholder="Type here to get started!"></textarea>
                 <button class="w3-button w3-block theme-dark-primary w3-section w3-padding" style="width:600px;"type="submit" value="save">Save</button>
             </form>
             <h2 class="w3-center">Themes</h2>

@@ -17,15 +17,13 @@
 	$input_alias = "";
 	$input_pswrd = "";
 	$input_pswd2 = "";
-
+	
 	if ((isset($_POST["email"]) && $_POST["email"]) || (isset($_POST["alias"]) && $_POST["alias"]) || (isset($_POST["pswrd"]) && $_POST["pswrd"]) || (isset($_POST["pswd2"]) && $_POST["pswd2"]))
 	{
 		//OPEN DATABASE, NEEDED FOR SANITIZATION
-		<?php include '../snippets/open_db.php'; ?>
-		
+		$db = new mysqli("localhost", "soren200", "Asdfasdf", "soren200");
 		if ($db->connect_error) { die ("Database connection failed: " . $db->connect_error); }
-
-
+		
 		//PROTECT AGAINST SQL INJECTION ATTACK
 		$input_email = htmlspecialchars(strip_tags($db->real_escape_string(trim($_POST["email"]))));
 		$input_alias = htmlspecialchars(strip_tags($db->real_escape_string(trim($_POST["alias"]))));
@@ -52,7 +50,6 @@
 		elseif (strlen($input_pswrd) < 8) { $result = false; }
 
 		if ($input_pswd2 != $input_pswrd) { $result = false; }
-
 
 
 		//IF JAVASCRIPT CHECKS FAIL PHP ENFORCEMENT
@@ -152,19 +149,19 @@
 				<p>Password:
 					<input name="pswrd" type="password" value=<?="\"" . $input_pswrd . "\""?>></p><br/>
 					<label id="signup_pswrd_message" class="error-message"></label>
-
+				
 				<p>Verify:
 					<input name="pswd2" type="password" value=<?="\"" . $input_pswd2 . "\""?>></p><br/>
 					<label id="signup_pswd2_message" class="error-message"></label>
-
+				
 				<p>Optional profile picture: </p>
 					<input type="file" name="image">
-
+				
 				<input type="submit" value="Register">
 				<script type="text/javascript" src="../js/validate_signup.js"></script>
 				<script type="text/javascript" src="../js/register_signup.js"></script>
 			</form>
-
+			
 		</div>
 <?php include '../snippets/footer.php'; ?>
 	</body>
