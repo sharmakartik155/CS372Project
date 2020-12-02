@@ -23,12 +23,14 @@
 						$blah = $r1->fetch_assoc();
 						$my_id = $blah['user_id'];
 						
-						$q9 = "SELECT * FROM Access WHERE access_doc = '$id' AND access_id = '$my_id'";
-						$r9 = $db->query($r9);
-						if(mysqli_num_rows($q9) > 0) {
+						$q9 = "SELECT * FROM Access WHERE access_doc = '$id' AND access_user = '$my_id'";
+						$r9 = $db->query($q9);
+						$blah2 = $r9->fetch_assoc();
+						
+						if ($blah2 == 0) {
 							header("Location: ../pages/docs.php");
 							exit();
-						}
+						}					
 						
 						$q = "SELECT * FROM Docs where doc_id = '$id'";
 						$r = $db->query($q);
