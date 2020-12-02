@@ -9,7 +9,7 @@ CREATE TABLE Users (
 	user_email 		VARCHAR(255) NOT NULL UNIQUE,
 	user_image 		VARCHAR(255) NOT NULL DEFAULT '../users/_default.png',
 	
-	user_theme		INT NOT NULL DEFAULT 0,
+	user_theme		VARCHAR(255) NOT NULL DEFAULT 'background: #121212; color: #EEEEEE;',
 	user_font_size		INT NOT NULL DEFAULT 11,
 	
 	PRIMARY KEY (user_id)
@@ -46,29 +46,5 @@ CREATE TABLE Access (
 	FOREIGN KEY (access_doc) REFERENCES Docs(doc_id),
 	FOREIGN KEY (access_user) REFERENCES Users(user_id)
 );
-
-
-
-CREATE TABLE Themes (
-	theme_id 	INT NOT NULL AUTO_INCREMENT,
-	name 		VARCHAR(64) NOT NULL,
-	font 		VARCHAR(16) NOT NULL DEFAULT 'Arial',
-	bkgd 		VARCHAR(16) NOT NULL DEFAULT 'white', 			/* css interpretable color */
-	color 		VARCHAR(16) NOT NULL DEFAULT 'black',
-
-	PRIMARY KEY (theme_id)
-);
-
-INSERT INTO Themes (bkgd, color, name, font) VALUES ('#FFFFFF', '#000000', 'norm', 'Times New Roman');
-INSERT INTO Themes (bkgd, color, name, font) VALUES ('#121212', '#EEEEEE', 'dark', 'Times New Roman');
-INSERT INTO Themes (bkgd, color, name, font) VALUES ('#242424', '#EEEEEE', 'dusk', 'Times New Roman');
-INSERT INTO Themes (bkgd, color, name, font) VALUES ('#36342b', '#c76312', 'rustic', 'Times New Roman');
-INSERT INTO Themes (bkgd, color, name, font) VALUES ('#143D59', '#F4B41A', 'heaven', 'Times New Roman');
-INSERT INTO Themes (bkgd, color, name, font) VALUES ('#293250', '#6DD47E', 'oceans', 'Times New Roman');
-
-
-
-
-
 
 
