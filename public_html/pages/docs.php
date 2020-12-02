@@ -24,12 +24,17 @@
 	
 	$id = $user["user_id"];
 
-	$share_only_once = true;
+	//$share_only_once = true;
 	
-	$q2 = "SELECT * FROM Docs WHERE doc_creator = '$id' OR doc_editor = '$id' OR doc_requestor = '$id' ORDER BY doc_created DESC";
+	$q2 = "SELECT * FROM Access WHERE access_user = '$id' ORDER BY access_added DESC;";
 	$r2 = $db->query($q2);
-	while($doc = $r2->fetch_assoc()) {
-		$doc_id = $doc["doc_id"];
+	while($access_doc = $r2->fetch_assoc()) {
+		$doc_id = $access_doc["access_doc"];
+		
+		$q4 = "SELECT * FROM Docs WHERE doc_id = '$doc_id'";
+		$r4 = $db->query($q4);
+		$doc = $r4->fetch_assoc();
+		
 		?>
 		<a href="../pages/<?php 
 			if ($doc["doc_editor"] == $id){
@@ -56,6 +61,6 @@
 				
 			</div>
 		</section>
-	  <?php include '../snippets/footer.php'; ?>
+	<?php include '../snippets/footer.php'; ?>
 	</body>
 </html>
