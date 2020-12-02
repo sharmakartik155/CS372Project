@@ -17,12 +17,11 @@ if (isset($_SESSION["email"]) || $_SESSION["email"])
 	</head>
 	<body class="theme-dark-secondary">
 <?php include '../snippets/header.php'; ?>
-        <div class="w3-margin left-element" style="width:600px;">
-            <form action="/docs.php" >
-                <textarea id="textarea" class="theme-dark-primary textarea-demo" placeholder="Type here to get started!"></textarea>
-                <button class="w3-button w3-block theme-dark-primary w3-section w3-padding" style="width:600px;"type="submit" value="save">Save</button>
-            </form>
-            <h2 class="w3-center">Themes</h2>
+		<div class="w3-margin left-element" style="width:600px;">
+			<textarea id="textarea" class="theme-dark-primary textarea-demo" placeholder="Type here to get started!"></textarea>
+			<a href="../pages/register.php" class="w3-button w3-block theme-dark-primary w3-section w3-padding" style="width:600px;">Save</a>
+
+			<h2 class="w3-center">Themes</h2>
             <button onclick="changeTheme(classList.item(0))" class="theme-dark-primary theme-button w3-section w3-padding" type="submit">1</button>
             <button onclick="changeTheme(classList.item(0))" class="theme-white theme-button w3-section w3-padding" type="submit">2</button>
             <button onclick="changeTheme(classList.item(0))" class="theme-grey-orange theme-button w3-section w3-padding" type="submit">3</button>
