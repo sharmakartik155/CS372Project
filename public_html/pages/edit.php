@@ -98,8 +98,6 @@
 				<button class="w3-button theme-dark-primary w3-margin-left edit-buttons" type="submit" value="save">Share</button>
 			</form>
 			<?php }?>		
-
-
 		</section>
 <?php include '../snippets/footer.php'; ?>
 	</body>
@@ -107,6 +105,7 @@
 
 
 <!--pseudocode representation of what will be implemented in JavaScript on the Editor page
+
 
 bool update = false;
 unsigned delayTime = 3000; //3 seconds

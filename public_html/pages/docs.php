@@ -56,6 +56,6 @@
 				
 			</div>
 		</section>
-	<?php include '../snippets/footer.php'; ?>
+	  <?php include '../snippets/footer.php'; ?>
 	</body>
 </html>
