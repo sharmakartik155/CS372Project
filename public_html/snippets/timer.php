@@ -1,6 +1,6 @@
 <?php
 	if (isset($_GET['doc_id'])) {
-		$db = new mysqli("localhost", "soren200", "Asdfasdf", "soren200");
+		include '../snippets/open_db.php';
 		if ($db->connect_error) {
 			die ("Connection failed: " . $db->connect_error);
 		}

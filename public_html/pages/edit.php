@@ -10,16 +10,29 @@
 	<body class="theme-dark-secondary">
 <?php include '../snippets/header.php'; ?>
 
-<?php 
+<?php
 	$validate = true;
-		
-	$db = new mysqli("localhost", "soren200", "Asdfasdf", "soren200");
+
+	include '../snippets/open_db.php';
 	if ($db->connect_error) { die ("Database connection failed: " . $db->connect_error); }
-		
+
 	$email = $_SESSION["email"];
 	$q = "SELECT * FROM Users where user_email = '$email'";
 	$r = $db->query($q);
-	$user = $r->fetch_assoc();	
+	$user = $r->fetch_assoc();
+
+	if (isset($_GET['id'])){
+		$id = $_GET['id'];
+		$user_id = $user["user_id"];
+		$q9 = "SELECT * FROM Access WHERE access_doc = '$id' AND access_user = '$user_id'";
+		$r9 = $db->query($q9);
+		$blah2 = $r9->fetch_assoc();
+		if ($blah2 == 0) {
+			header("Location: ../pages/docs.php");
+			exit();
+	}
+	}
+
 
 	if ((isset($_POST["title"]) && $_POST["title"]) && (isset($_POST["content"]) && $_POST["content"])){
 
@@ -32,49 +45,13 @@
 
 		if($validate == true){
 			$user_id = $user["user_id"];
-			
+
 			if (isset($_GET['id'])){
 				$doc_id = $_GET['id'];
-				
-						/*$id = $_GET['id'];
-						
-						$email = $_SESSION["email"];
-						$q1 = "SELECT user_id FROM Users where user_email = '$email'";
-						$r1 = $db->query($q1);
-						$blah = $r1->fetch_assoc();
-						$my_id = $blah['user_id'];
-						
-						$q9 = "SELECT * FROM Access WHERE access_doc = '$id' AND access_user = '$my_id'";
-						$r9 = $db->query($q9);
-						$blah2 = $r9->fetch_assoc();
-						
-						
-						if ($blah2 == 0) {
-							header("Location: ../pages/docs.php");
-							exit();
-						}*/
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				$q2 = "UPDATE Docs SET doc_content = '$content', doc_title = '$title' WHERE doc_id = '$doc_id'";
+
+				$q2 = "UPDATE Docs SET doc_content = '$content', doc_title = '$title', doc_modified = now() WHERE doc_id = '$doc_id'";
 				$r2 = $db->query($q2);
-				
+
 				if($r2 === true) {
 						header("Location: ../pages/docs.php");
 						$db->close();
@@ -82,14 +59,14 @@
 				}
 			}
 			else {
-				$q2 = "INSERT INTO Docs (doc_creator, doc_editor, doc_title, doc_content) VALUES ('$user_id', '$user_id', '$title', '$content')";
+				$q2 = "INSERT INTO Docs (doc_creator, doc_editor, doc_title, doc_content, doc_modified) VALUES ('$user_id', '$user_id', '$title', '$content', now())";
 				$r2 = $db->query($q2);
 				$doc_id = $db->insert_id;
-	
+
 				if ($r2 === true) {
 					$q3 = "INSERT INTO Access (access_doc, access_user) VALUES ('$doc_id', '$user_id')";
 					$r3 = $db->query($q3);
-					
+
 					if($r3 === true) {
 						header("Location: ../pages/docs.php");
 						$db->close();
@@ -114,37 +91,36 @@
 					$edit_content = $edit_doc["doc_content"];
 					$edit_title = $edit_doc["doc_title"];
 					}
-					
-					
+
+					$user_theme = $user["user_theme"];
+					$user_font_size = $user["user_font_size"];
 				?>
 				<form  id="docForm" method="post">
-					<input name="title" type=text class="doc-title theme-dark-primary" value="<?php echo $edit_title;?>"placeholder="Document Title">
-					<textarea name="content" class="theme-dark-primary textarea-main w3-margin-top" placeholder="Type here to get started!" value="sdf" type="text" form="docForm"><?php echo $edit_content;?></textarea>
-					<div class="w3-quarter">
-						<p>Last auto-upload 3 seconds ago</p>
-						<p>Next auto-upload in 2 seconds</p>
-					</div>
+					<input name="title" type=text class="doc-title theme-dark-primary" style="<?php echo $user_theme?> font-size: <?php echo $user_font_size?>px;"value="<?php echo $edit_title;?>"placeholder="Document Title">
+					<textarea name="content" class="theme-dark-primary textarea-main w3-margin-top" style="<?php echo $user_theme?> font-size: <?php echo $user_font_size?>px;"" placeholder="Type here to get started!" value="sdf" type="text" form="docForm"><?php echo $edit_content;?></textarea>
+
 					<button id="save-button" class="w3-button theme-dark-primary w3-section w3-quarter w3-margin-left w3-margin-right w3-padding edit-buttons" type="submit" value="save">Save</button>
 				</form>
 				<button id="release-button" class="w3-button theme-dark-primary w3-section w3-quarter w3-margin-left w3-margin-right w3-padding edit-buttons">Release Control</button>
-				<div id="requestor" name=></div>	
+				<div id="requestor" name=></div>
 				<script>
+
 					var doc_id = <?php echo $id;?>;
 					var requestor_id;
 					var timerVar = setInterval(timer, 3000);
 					timer(doc_id);
-					
+
 					function timer(doc_id) {
 						var element = document.getElementById("requestor");
-						
+
 						var xmlhttp = new XMLHttpRequest();
 						xmlhttp.open("GET", "../snippets/timer.php?doc_id=" + doc_id, true);
 						xmlhttp.send();
-								
+
 						xmlhttp.onreadystatechange = function() {
 							if (this.readyState == 4 && this.status == 200) {
 								var results = JSON.parse(this.responseText);
-								alert(results[0].user_alias + " requested control.");
+								toast(results[0].user_alias + " requested control.");
 								element.setAttribute("name", results[0].user_id);
 							}
 						}
@@ -153,12 +129,9 @@
 				</script>
 				<script type="text/javascript" src="../js/lock.js"></script>
 				<script type="text/javascript" src="../js/register_lock.js"></script>
-				<div class="w3-right-align">
-					<p>3 current viewers</p>
-					<p>1 request for edit control</p>
-				</div>
+
 			</div>
-			<?php 
+			<?php
 				if (isset($_GET['id'])) {
 					if ((isset($_POST["share_email"]) && $_POST["share_email"])){
 						$share_email = trim($_POST["share_email"]);
@@ -175,7 +148,7 @@
 				<input type="text" name="share_email" class="theme-dark-primary share" id="share" placeholder="Enter the email address here">
 				<button class="w3-button theme-dark-primary w3-margin-left edit-buttons" type="submit" value="save">Share</button>
 			</form>
-			<?php }?>		
+			<?php }?>
 		</section>
 <?php include '../snippets/footer.php'; ?>
 	</body>

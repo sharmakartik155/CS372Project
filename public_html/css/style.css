@@ -119,7 +119,6 @@ html, body, h1, h2, h3, h4, h5, h6 {
 	font-family: "Times New Roman", serif;
 	}
 
-
 /*Themes*/
 .theme-dark-primary {
     background: #121212;
@@ -177,7 +176,7 @@ html, body, h1, h2, h3, h4, h5, h6 {
 }
 
 @-webkit-keyframes fadein {
-  from {bottom: 0; opacity: 0;} 
+  from {bottom: 0; opacity: 0;}
   to {bottom: 30px; opacity: 1;}
 }
 
@@ -187,7 +186,7 @@ html, body, h1, h2, h3, h4, h5, h6 {
 }
 
 @-webkit-keyframes fadeout {
-  from {bottom: 30px; opacity: 1;} 
+  from {bottom: 30px; opacity: 1;}
   to {bottom: 0; opacity: 0;}
 }
 
