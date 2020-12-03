@@ -18,7 +18,7 @@ An online outlining software that allows users view the document and see changes
 
 6. Download the file "db.sql" from the github repository, and move it to your home directory.
 
-7. Open your MySQL management command-line from your home directory. Import the create table commands by typing `source db.sql`.
+7. Open your MySQL management command-line from your home directory. Import the create table commands by typing `source db.sql;`.
 
 8. Open the file "~/public_html/snippets/open_db.php". Change the username and password to your own database's credentials.
 
