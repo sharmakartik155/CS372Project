@@ -4,7 +4,16 @@
 
 An online outlining software that allows users view the document and see changes as they are made.
 
-## Instructions to replicate set-up
+## Internal documentation disclaimer
+
+We were not aware until 10:37pm on December 2nd of the need to submit internal documentation with the project.
+We will submit our internal documentation with the project report as we originally planned.
+
+
+## All code is hosted at https://github.com/sharmakartik155/CS372Project.
+
+
+## Instructions to replicate set-up (external documentation)
 
 1. These instructions are for use with a University of Regina Undergraduate Hercules Account
 
@@ -41,5 +50,3 @@ All together, this was a good project to teach us about how working in teams on 
 Until then: all the best,
 
 Team Leader: Philip Ottenbreit
-
-
