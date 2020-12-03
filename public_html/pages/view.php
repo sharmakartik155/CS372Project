@@ -32,6 +32,7 @@
 							exit();
 						}
 
+
 						$q = "SELECT * FROM Docs where doc_id = '$id'";
 						$r = $db->query($q);
 						$edit_doc = $r->fetch_assoc();
@@ -52,8 +53,10 @@
 					$email = $_SESSION["email"];
 					$q1 = "SELECT user_id FROM Users where user_email = '$email'";
 					$r1 = $db->query($q1);
+					
 					$user_id = $r1->fetch_assoc();
 					$my_id = $user['user_id'];
+
 				?>
 				<button id="request-button" class="w3-button theme-dark-primary w3-section  w3-padding edit-buttons" style="width:100%;">Request Control</button>
 				<script type="text/javascript">
@@ -75,6 +78,7 @@
 						xmlhttp.onreadystatechange = function() {
 							if (this.readyState == 4 && this.status == 200) {
 								var results = JSON.parse(this.responseText);
+
 								if (results[0].editor_id == requestor_id) {
 									window.location = "http://www2.cs.uregina.ca/~soren200/pages/edit.php?id=" + doc_id;
 								}
